@@ -8,8 +8,7 @@ Your function must utilize recursion. It cannot contain any loops.
 # Base case: Exit out if the string length is less than or equal to 1, since we need two letters for this one to work 
 # Evaluates first two letters of string 
 # If the first two letters include "th": 
-    # Increment the count variable that was initialized at 0 
-    # Call the function again (recursively), on the rest of the string minus the first letter
+    # Call the function again (recursively), on the rest of the string minus the first letter, + 1 to increment as you go
 # Else 
     # Call the function again (recursively), on the rest of the string minus the first letter
 # Return count 
@@ -25,6 +24,18 @@ Your function must utilize recursion. It cannot contain any loops.
 
 def count_th(word):
     
-    # TBC
+    # Save letters in key 
+    key = "th"
     
-    pass
+    # Base case
+    if len(word) <= 1: 
+        return 0 
+    
+    # Recursive case
+    if key in word[0:2]: 
+        return 1 + count_th(word[1:])
+    else: 
+        return count_th(word[1:])
+    
+
+
