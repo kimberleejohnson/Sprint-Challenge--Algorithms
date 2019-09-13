@@ -116,9 +116,10 @@ class SortingRobot:
     # Pick up an item 
     # Move robot to the right 
     # Compare picked up item to item at new position 
-    # If new position item is smaller than held, returns 1 
+    # If compare item is greater than the one the robot holds, returns a -1
         # Move robot to right, keep comparing -- (potential recursion?)
-    # If new position item is greater than held, returns -1 
+    # But, if compare item is smaller, returning a 1 
+        # Move the robot back left 
         # Swap out the items 
         # Move robot to right, keep comparing -- (potential recursion?)
     # If new position item is same 
@@ -138,23 +139,17 @@ class SortingRobot:
             # Move right to compare 
             self.move_right()
 
-            # If the robot's item is greater than the compare item 
-            if self.compare_item == 1: 
-                # Swap them out 
-                self.swap_item() 
-                # Move to the left of the compare item 
-                self.move_left()
-                # Swap again, put compare item down 
-                self.swap_item()
-                # Move back to the right, keep comparing 
+            # If the compare item is greater than the one the robot holds 
+            if self.compare_item == -1: 
+                # Move to the right, keep comparing 
                 self.move_right()
                 return self.sort(self._list[self._position:])
 
-            elif self.compare_item == - 1: 
-                self.swap_item() 
+            # If the compare item is smaller than the one the robot holds 
+            elif self.compare_item == 1: 
+                self.move_left() 
+                self.swap_item()
                 self.move_right()
-                self.swap_item() 
-                self.move_left()
                 return self.sort(self._list[self._position:])
 
 
