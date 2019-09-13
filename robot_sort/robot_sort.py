@@ -124,12 +124,22 @@ class SortingRobot:
         # Move robot to right, keep comparing -- (potential recursion?)
     # If new position item is same 
         # Move robot to right, keep comparing -- (potential recursion?)
+
+    ## Pseudocode attempt 2.5 (selection sort)
+    # Robot has to start at self._position 0, because we can't store variables. This means binary search and midpoints are not available to us. 
+    # Robot needs to start by picking up first item. 
+    # Robot then needs to move right, continuing all the way through the list, swapping out the item it holds for the smallest value it finds along the way. 
+    # Then, it needs to bring that smallest value (that it has picked) all the way back to the beginning and swap it with what's there (None at first).
+    # Then, it needs to move right once and repeat 
+    # This cycle should continue until entire list has been sorted 
+    # Since we can't store variables or incrementors, we need to store and track changes somehow with the lights 
     
     def sort(self):
         """
         Sort the robot's list.
         """
         # Base case for attempted recursion 
+        ## If the robot can no longer move right
         if len(self._list) <= 0: 
             return 0 
 
