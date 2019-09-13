@@ -46,7 +46,7 @@ Given the fact that the floors are ordered, we can do a binary search to determi
         elif floors[midpoint] < f: 
             return floor_search(floors[midpoint + 1:], f)
         else: 
-            return floor_search(floors[:midpoint], f)
+            return floor_search(floors[:midpoint], f)`
 
         
 
