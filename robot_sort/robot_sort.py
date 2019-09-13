@@ -137,7 +137,7 @@ class SortingRobot:
             self.swap_item() 
             # Move right to compare 
             self.move_right()
-            
+
             # If the robot's item is greater than the compare item 
             if self.compare_item == 1: 
                 # Swap them out 
