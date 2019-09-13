@@ -14,6 +14,9 @@ class SortingRobot:
         Returns True if the robot can move right or False if it's
         at the end of the list.
         """
+        
+        # If the robot's position is less than the length of the list, keep moving to the right (True)
+        # (False) can't move to the right, must move left 
         return self._position < len(self._list) - 1
 
     def can_move_left(self):
@@ -21,6 +24,9 @@ class SortingRobot:
         Returns True if the robot can move left or False if it's
         at the start of the list.
         """
+
+        # If the robot is away from the beginning of the list, robot can move backward to the left (True)
+        # If the robot is at the beginning of the list, must move right (False)
         return self._position > 0
 
     def move_right(self):
@@ -29,6 +35,11 @@ class SortingRobot:
         returns True. Otherwise, it stays in place and returns False.
         This will increment the time counter by 1.
         """
+        
+        # Can move right determined
+        # Move right if it can, returns True
+        # If can't move right, returns False 
+        
         self._time += 1
         if self._position < len(self._list) - 1:
             self._position += 1
@@ -42,6 +53,10 @@ class SortingRobot:
         returns True. Otherwise, it stays in place and returns False.
         This will increment the time counter by 1.
         """
+
+        # Can move left determined 
+        # Moves left if can and returns True
+        # If can't move left, returns False 
         self._time += 1
         if self._position > 0:
             self._position -= 1
@@ -69,13 +84,16 @@ class SortingRobot:
         """
         if self._item is None or self._list[self._position] is None:
             return None
+        # If the one the robot already holds is greater, returns 1 
         elif self._item > self._list[self._position]:
             return 1
+        # If the one the robot already holds is smaller, returns -1
         elif self._item < self._list[self._position]:
             return -1
         else:
             return 0
 
+    # Potential additional conditions for looping 
     def set_light_on(self):
         """
         Turn on the robot's light
@@ -90,6 +108,7 @@ class SortingRobot:
         """
         Returns True if the robot's light is on and False otherwise.
         """
+        # Can be used to check if light is on 
         return self._light == "ON"
 
     def sort(self):
