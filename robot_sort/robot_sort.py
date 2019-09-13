@@ -111,6 +111,19 @@ class SortingRobot:
         # Can be used to check if light is on 
         return self._light == "ON"
 
+    ## Pseudocode for sort 
+    # Robot has to start at self._position 0, because we can't store variables 
+    # Pick up an item 
+    # Move robot to the right 
+    # Compare picked up item to item at new position 
+    # If new position item is smaller than held, returns 1 
+        # Move robot to right, keep comparing -- (potential recursion?)
+    # If new position item is greater than held, returns -1 
+        # Swap out the items 
+        # Move robot to right, keep comparing -- (potential recursion?)
+    # If new position item is same 
+        # Move robot to right, keep comparing -- (potential recursion?)
+    
     def sort(self):
         """
         Sort the robot's list.
