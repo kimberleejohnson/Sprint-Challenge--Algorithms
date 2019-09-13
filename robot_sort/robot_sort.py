@@ -128,8 +128,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Base case for attempted recursion 
+        if len(self._list) <= 0: 
+            return 0 
+
+        while self.can_move_right(): 
+            # Goes from holding None to having something to compare 
+            self.swap_item() 
+            # Move right to compare 
+            self.move_right()
+            
+            # If the robot's item is greater than the compare item 
+            if self.compare_item == 1: 
+                # Swap them out 
+                self.swap_item() 
+                # Move to the left of the compare item 
+                self.move_left()
+                # Swap again, put compare item down 
+                self.swap_item()
+                # Move back to the right, keep comparing 
+                self.move_right()
+                return self.sort(self._list[self._position:])
+
+            elif self.compare_item == - 1: 
+                self.swap_item() 
+                self.move_right()
+                self.swap_item() 
+                self.move_left()
+                return self.sort(self._list[self._position:])
 
 
 if __name__ == "__main__":
